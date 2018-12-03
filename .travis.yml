@@ -2,8 +2,10 @@
 language: go
 before_install:
   - sudo add-apt-repository ppa:snappy-dev/tools
+
 addons:
   apt:
+    update: true
     packages:
       # needed for the nfpm pipe:
       - rpm
