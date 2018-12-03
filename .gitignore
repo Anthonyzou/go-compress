@@ -1,2 +1,4 @@
 *.gz
 *.br
+dist
+brotli
