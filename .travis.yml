@@ -2,15 +2,8 @@
 language: go
 before_install:
   - sudo add-apt-repository ppa:snappy-dev/tools
-
-addons:
-  apt:
-    update: true
-    packages:
-      # needed for the nfpm pipe:
-      - rpm
-      # needed for the snap pipe:
-      - snapcraft
+  - sudo apt-get update
+  - sudo apt-get install snapcraft rpm -y
 
 env:
   # needed for the snap pipe:
