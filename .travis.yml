@@ -1,17 +1,17 @@
 # .travis.yml
 language: go
-before_install:
-  - sudo add-apt-repository ppa:snappy-dev/tools -y
-  - sudo apt-get update
-  - sudo apt-get install snapcraft rpm -y
+# before_install:
+# - sudo add-apt-repository ppa:snappy-dev/tools -y
+# - sudo apt-get update
+# - sudo apt-get install snapcraft rpm -y
 
-env:
-  # needed for the snap pipe:
-  - PATH=/snap/bin:$PATH
+# env:
+#   needed for the snap pipe:
+# - PATH=/snap/bin:$PATH
 
 install:
   # needed for the snap pipe:
-  - sudo snap install snapcraft --classic
+  # # - sudo snap install snapcraft --classic
   - go get
   # needed for the docker pipe
 services:
