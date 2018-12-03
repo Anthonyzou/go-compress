@@ -1,0 +1,33 @@
+builds:
+  - binary: compress
+    main: ./
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+      - -linkmode=external
+    flags:
+      - -tags=netgo
+    env:
+      - CGO_ENABLED=1
+      - GO111MODULE=on
+    goos:
+      - linux
+      - darwin
+      - windows
+      - freebsd
+      - netbsd
+      - openbsd
+    goarch:
+      - amd64
+archive:
+  format: tar.gz
+  format_overrides:
+    - goos: windows
+      format: zip
+  name_template: "{{.Binary}}_{{.Version}}_{{.Os}}_{{.Arch}}"
+  files:
+    - cmd/minify/README.md
+    - LICENSE.md
+snapshot:
+  name_template: "devel"
+release:
+  disable: true
