@@ -12,7 +12,7 @@ env:
 install:
   # needed for the snap pipe:
   - sudo snap install snapcraft --classic
-
+  - go get
   # needed for the docker pipe
 services:
   - docker
