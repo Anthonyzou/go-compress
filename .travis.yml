@@ -1,6 +1,7 @@
 # .travis.yml
 language: go
-
+before_install:
+  - sudo add-apt-repository ppa:snappy-dev/tools
 addons:
   apt:
     packages:
