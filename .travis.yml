@@ -5,11 +5,13 @@ language: go
 # - sudo apt-get update
 # - sudo apt-get install snapcraft rpm -y
 
-# env:
+env:
+  - CGO_ENABLED=1
+  - GO111MODULE=on
 #   needed for the snap pipe:
 # - PATH=/snap/bin:$PATH
 
-install:
+before_install:
   # needed for the snap pipe:
   # # - sudo snap install snapcraft --classic
   - go get
