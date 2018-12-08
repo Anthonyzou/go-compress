@@ -3,7 +3,6 @@ builds:
     main: ./
     ldflags:
       - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
-      - -linkmode=external
     flags:
       - -tags=netgo
     env:
@@ -11,6 +10,7 @@ builds:
       - GO111MODULE=on
     goos:
       - darwin
+      - linux
     goarch:
       - amd64
 archive:

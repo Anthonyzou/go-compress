@@ -1,29 +1,10 @@
 # .travis.yml
 language: go
-# before_install:
-# - sudo add-apt-repository ppa:snappy-dev/tools -y
-# - sudo apt-get update
-# - sudo apt-get install snapcraft rpm -y
-
-env:
-  - CGO_ENABLED=1
-  - GO111MODULE=on
-#   needed for the snap pipe:
-# - PATH=/snap/bin:$PATH
 
 before_install:
-  # needed for the snap pipe:
-  # # - sudo snap install snapcraft --classic
-  - go get
-  # needed for the docker pipe
-services:
-  - docker
+  - go get github.com/mattn/goveralls
+script:
+  - $HOME/gopath/bin/goveralls -v -service=travis-ci
 
-  # calls goreleaser
-deploy:
-  - provider: script
-    skip_cleanup: true
-    script: curl -sL https://git.io/goreleaser | bash
-    on:
-      tags: true
-      condition: $TRAVIS_OS_NAME = linux
+after_success:
+  - test -n "$TRAVIS_TAG" && curl -sL https://git.io/goreleaser | bash

@@ -2,3 +2,4 @@
 *.br
 dist
 brotli
+vendor
